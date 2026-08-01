@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa"
 function ProjectCard({ title, description, image, tags, githubLink, demoLink, delay = 0 }) {
   return (
     <motion.div
-      iinitial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
@@ -14,7 +14,7 @@ function ProjectCard({ title, description, image, tags, githubLink, demoLink, de
       <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-500/20 shadow-lg hover:shadow-purple-500/10 transition-all duration-300 overflow-hidden h-full"
       >
         <div className="flex flex-col h-full">
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-56 md:h-64 overflow-hidden">
             <motion.img
               src={image || "/placeholder.svg"}
               alt={title}
