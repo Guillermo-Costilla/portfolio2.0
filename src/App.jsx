@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Atropos from "atropos/react";
 import "atropos/css";
@@ -22,6 +22,8 @@ import {
   FaDownload,
   FaMapMarkerAlt,
   FaClock,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 
 function App() {
@@ -29,85 +31,116 @@ function App() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
   const contactRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToContact = () => {
     contactRef.current.scrollIntoView({ behavior: "smooth" });
+    setMobileMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <div className="min-h-screen w-full items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-x-hidden">
       <FloatingLogos />
 
       {/* Header */}
       <header className="sticky top-0 z-40 w-full border-b border-purple-900/20 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6 lg:px-8">
           <div className="font-bold text-xl">
             Guille
             <ColorChangingText text="Dev" />
           </div>
-          <nav className="hidden md:flex gap-6">
-            <a
-              href="#home"
-              className="text-sm font-medium hover:text-purple-400 transition-colors"
-            >
-              Inicio
-            </a>
-            <a
-              href="#about"
-              className="text-sm font-medium hover:text-purple-400 transition-colors"
-            >
-              Sobre mí
-            </a>
-            <a
-              href="#projects"
-              className="text-sm font-medium hover:text-purple-400 transition-colors"
-            >
-              Proyectos
-            </a>
-            <a
-              href="#contact"
-              className="text-sm font-medium hover:text-purple-400 transition-colors"
-            >
-              Contacto
-            </a>
-          </nav>
+
           <div className="flex items-center gap-2">
-            <a
-              href="https://github.com/Guillermo-Costilla"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2 hover:text-purple-400 transition-colors"
+            <nav className="hidden md:flex gap-6">
+              <a
+                href="#home"
+                className="text-sm font-medium hover:text-purple-400 transition-colors"
+              >
+                Inicio
+              </a>
+              <a
+                href="#about"
+                className="text-sm font-medium hover:text-purple-400 transition-colors"
+              >
+                Sobre mí
+              </a>
+              <a
+                href="#projects"
+                className="text-sm font-medium hover:text-purple-400 transition-colors"
+              >
+                Proyectos
+              </a>
+              <a
+                href="#contact"
+                className="text-sm font-medium hover:text-purple-400 transition-colors"
+              >
+                Contacto
+              </a>
+            </nav>
+
+            <button
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-purple-500/20 bg-gray-800/80 text-white transition-colors hover:bg-gray-700 md:hidden"
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
-              <FaGithub className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/guillermo-costilla-6772a725a/"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2 hover:text-purple-400 transition-colors"
-            >
-              <FaLinkedin className="h-5 w-5" />
-            </a>
+              {mobileMenuOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
+            </button>
+
             <button
               onClick={scrollToContact}
-              className="hidden md:flex bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+              className="hidden md:inline-flex bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
             >
               Contactar
             </button>
           </div>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-purple-900/20 bg-gray-900/95 backdrop-blur-sm px-4 py-4">
+            <div className="flex flex-col gap-3">
+              <a
+                href="#home"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium hover:text-purple-400 transition-colors"
+              >
+                Inicio
+              </a>
+              <a
+                href="#about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium hover:text-purple-400 transition-colors"
+              >
+                Sobre mí
+              </a>
+              <a
+                href="#projects"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium hover:text-purple-400 transition-colors"
+              >
+                Proyectos
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium hover:text-purple-400 transition-colors"
+              >
+                Contacto
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
       <section
         id="home"
-        className="container mx-auto py-24 md:py-32 px-4 relative"
+        className="container mx-auto py-20 md:py-28 px-4 md:px-6 lg:px-8 relative"
       >
         <motion.div
           style={{ opacity, scale }}
-          className="flex flex-col md:flex-row gap-8 items-center"
+          className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-16 items-center"
         >
-          <div className="flex-1 ml-6 sm:ml-0 space-y-4">
+          <div className="flex-1 space-y-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -121,7 +154,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold"
             >
               <ColorChangingText text="Analista de Datos | BI & Reporting" />
             </motion.h1>
@@ -130,7 +163,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-gray-400"
+              className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl"
             >
               Modelo bases de datos y construyo dashboards que responden
               preguntas de negocio reales: qué está funcionando, dónde hay
@@ -142,25 +175,25 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex gap-2 sm:gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <a
                 href="#projects"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25 flex items-center"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25 flex items-center justify-center"
               >
                 Ver proyectos
                 <FaArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
                 href="#contact"
-                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30"
+                className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30 text-center"
               >
                 Contactar
               </a>
               <a
                 href={cv}
                 download
-                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30 flex items-center"
+                className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30 flex items-center justify-center"
               >
                 <FaDownload className="mr-2 h-4 w-4" />
                 Descargar CV
@@ -172,7 +205,7 @@ function App() {
             <Atropos
               highlight={false}
               shadow={false}
-              className="w-72 h-72 md:w-96 md:h-96"
+              className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-purple-500 shadow-lg shadow-purple-500/25">
                 <img
@@ -199,10 +232,10 @@ function App() {
           viewport={{ once: true }}
           className="space-y-4 mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
             Proyectos que resuelven preguntas de negocio reales:
           </h2>
-          <p className="text-gray-400 max-w-3xl text-2xl mx-auto text-left">
+          <p className="text-gray-400 max-w-3xl text-base sm:text-lg md:text-xl mx-auto text-left">
             Cada dashboard parte de datos crudos y termina en un modelo de datos
             sólido, listo para responder preguntas concretas. Trabajo con SQL
             Server para modelar y limpiar la información, y Power BI para
@@ -278,8 +311,8 @@ function App() {
             viewport={{ once: true }}
             className="space-y-4 mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mx-auto">Sobre Mí</h2>
-            <p className="text-gray-400 max-w-4xl text-2xl mx-auto text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold mx-auto">Sobre Mí</h2>
+            <p className="text-gray-400 max-w-4xl text-base sm:text-lg md:text-xl mx-auto text-left">
               Vengo del desarrollo de software y di el salto al análisis de
               datos por una razón concreta: me interesa más el porqué
               detrás de un número que la pantalla que lo muestra. Modelo
@@ -295,7 +328,7 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Business Intelligence */}
             <motion.div
               whileHover={{
@@ -516,7 +549,7 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -615,7 +648,7 @@ function App() {
 
       {/* Footer */}
       <footer className="border-t border-purple-900/20 py-8">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col gap-4 md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} GuilleDev. Todos los derechos

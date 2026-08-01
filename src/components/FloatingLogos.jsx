@@ -73,8 +73,8 @@ function FloatingLogos() {
                 alt={logo.alt}
                 style={{
                   opacity: 0.15,
-                  width: "70px",
-                  height: "70px",
+                  width: window.innerWidth < 640 ? "50px" : "70px",
+                  height: window.innerWidth < 640 ? "50px" : "70px",
                 }}
               />
             ) : (
@@ -82,8 +82,8 @@ function FloatingLogos() {
                 style={{
                   color: logo.color,
                   opacity: 0.15,
-                  width: "48px",
-                  height: "48px",
+                  width: window.innerWidth < 640 ? "36px" : "48px",
+                  height: window.innerWidth < 640 ? "36px" : "48px",
                 }}
               />
             )}
