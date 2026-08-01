@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Atropos from "atropos/react";
 import "atropos/css";
@@ -29,9 +29,15 @@ function App() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
   const contactRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToContact = () => {
     contactRef.current.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
+  const handleMenuLinkClick = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -94,7 +100,57 @@ function App() {
             >
               Contactar
             </button>
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="md:hidden inline-flex flex-col justify-between w-8 h-8 p-1 rounded-lg border border-purple-500/20 bg-gray-800/70 hover:bg-gray-700 transition-colors"
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            >
+              <span className="block h-0.5 w-full bg-white" />
+              <span className="block h-0.5 w-full bg-white" />
+              <span className="block h-0.5 w-full bg-white" />
+            </button>
           </div>
+        </div>
+
+        <div
+          className={`md:hidden ${isMenuOpen ? "block" : "hidden"} border-t border-purple-900/20 bg-gray-900/95 backdrop-blur rounded-b-xl px-4 pb-4 shadow-xl`}
+        >
+          <nav className="flex flex-col gap-3 py-4">
+            <a
+              href="#home"
+              onClick={handleMenuLinkClick}
+              className="text-sm font-medium hover:text-purple-400 transition-colors"
+            >
+              Inicio
+            </a>
+            <a
+              href="#about"
+              onClick={handleMenuLinkClick}
+              className="text-sm font-medium hover:text-purple-400 transition-colors"
+            >
+              Sobre mí
+            </a>
+            <a
+              href="#projects"
+              onClick={handleMenuLinkClick}
+              className="text-sm font-medium hover:text-purple-400 transition-colors"
+            >
+              Proyectos
+            </a>
+            <a
+              href="#contact"
+              onClick={handleMenuLinkClick}
+              className="text-sm font-medium hover:text-purple-400 transition-colors"
+            >
+              Contacto
+            </a>
+            <button
+              onClick={scrollToContact}
+              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+            >
+              Contactar
+            </button>
+          </nav>
         </div>
       </header>
 
@@ -130,19 +186,19 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-gray-400"
+              className="text-base sm:text-lg text-gray-400 max-w-3xl"
             >
               Modelo bases de datos y construyo dashboards que responden
               preguntas de negocio reales: qué está funcionando, dónde hay
               oportunidades y qué decisiones conviene tomar primero. Trabajo del
               dato crudo al insight accionable.
             </motion.p>
-
+ 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex gap-2 sm:gap-4"
+              className="flex flex-col sm:flex-row gap-3"
             >
               <a
                 href="#projects"
@@ -172,7 +228,7 @@ function App() {
             <Atropos
               highlight={false}
               shadow={false}
-              className="w-72 h-72 md:w-96 md:h-96"
+              className="w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-purple-500 shadow-lg shadow-purple-500/25">
                 <img
@@ -202,7 +258,7 @@ function App() {
           <h2 className="text-3xl font-bold">
             Proyectos que resuelven preguntas de negocio reales:
           </h2>
-          <p className="text-gray-400 max-w-3xl text-2xl mx-auto text-left">
+          <p className="text-gray-400 max-w-3xl text-base sm:text-lg mx-auto text-left">
             Cada dashboard parte de datos crudos y termina en un modelo de datos
             sólido, listo para responder preguntas concretas. Trabajo con SQL
             Server para modelar y limpiar la información, y Power BI para
@@ -279,7 +335,7 @@ function App() {
             className="space-y-4 mx-auto text-center"
           >
             <h2 className="text-3xl font-bold mx-auto">Sobre Mí</h2>
-            <p className="text-gray-400 max-w-4xl text-2xl mx-auto text-left">
+            <p className="text-gray-400 max-w-4xl text-base sm:text-lg mx-auto text-left">
               Vengo del desarrollo de software y di el salto al análisis de
               datos por una razón concreta: me interesa más el porqué
               detrás de un número que la pantalla que lo muestra. Modelo
