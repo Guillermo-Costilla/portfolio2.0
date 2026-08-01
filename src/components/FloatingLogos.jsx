@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { FaGithub, FaLinkedin, FaReact, FaNodeJs, FaJs, FaDatabase } from "react-icons/fa"
-import { SiTailwindcss, SiMysql, SiMongodb, SiExpress } from "react-icons/si"
+import { FaGithub, FaDatabase } from "react-icons/fa"
+import pbi from "../assets/pbi.png"
+import python from "../assets/python.png"
+import excel from "../assets/excel.png"
+import sql from "../assets/sql.png"
 
-// Componentes de iconos
+// Componentes de iconos (mezcla de react-icons e imágenes vía CDN)
 const logoComponents = [
-  { icon: FaGithub, alt: "GitHub", color: "#f5f5f5" },
-  { icon: FaLinkedin, alt: "LinkedIn", color: "#0077B5" },
-  { icon: FaReact, alt: "React", color: "#61DAFB" },
-  { icon: FaNodeJs, alt: "Node.js", color: "#339933" },
-  { icon: SiTailwindcss, alt: "Tailwind CSS", color: "#38B2AC" },
-  { icon: SiMysql, alt: "MySQL", color: "#4479A1" },
-  { icon: FaJs, alt: "JavaScript", color: "#F7DF1E" },
-  { icon: SiMongodb, alt: "MongoDB", color: "#47A248" },
-  { icon: SiExpress, alt: "Express", color: "#000000" },
-  { icon: FaDatabase, alt: "Database", color: "#f5f5f5" },
+  { type: "icon", icon: FaGithub, alt: "GitHub", color: "#f5f5f5" },
+  { type: "image", src: pbi, alt: "Power BI" },
+  { type: "icon", icon: FaDatabase, alt: "Database", color: "#f5f5f5" },
+  { type: "image", src: python, alt: "Python" },
+  { type: "image", src: excel, alt: "Excel" },
+  { type: "image", src: sql, alt: "SQL" },
 ]
 
 function generateRandomPosition() {
@@ -31,7 +30,7 @@ function FloatingLogos() {
   const [floatingLogos, setFloatingLogos] = useState([])
 
   useEffect(() => {
-    // Crea 12 logos flotantes con posiciones aleatorias (reducido de 20)
+    // Crea 12 logos flotantes con posiciones aleatorias
     const newLogos = []
     for (let i = 0; i < 12; i++) {
       const logo = logoComponents[i % logoComponents.length]
@@ -48,7 +47,6 @@ function FloatingLogos() {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
       {floatingLogos.map((logo) => {
-        const IconComponent = logo.icon
         return (
           <motion.div
             key={logo.id}
@@ -69,14 +67,26 @@ function FloatingLogos() {
               ease: "linear",
             }}
           >
-            <IconComponent
-              style={{
-                color: logo.color,
-                opacity: 0.15,
-                width: "48px",
-                height: "48px",
-              }}
-            />
+            {logo.type === "image" ? (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{
+                  opacity: 0.15,
+                  width: "70px",
+                  height: "70px",
+                }}
+              />
+            ) : (
+              <logo.icon
+                style={{
+                  color: logo.color,
+                  opacity: 0.15,
+                  width: "48px",
+                  height: "48px",
+                }}
+              />
+            )}
           </motion.div>
         )
       })}
@@ -85,4 +95,3 @@ function FloatingLogos() {
 }
 
 export default FloatingLogos
-

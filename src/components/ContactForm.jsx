@@ -61,7 +61,6 @@ function ContactForm() {
       whileHover={{ y: -10, boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.3)" }}
       className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg"
     >
-      <h3 className="text-xl font-bold mb-6">Envíame un mensaje</h3>
 
       {isSubmitted ? (
         <motion.div
