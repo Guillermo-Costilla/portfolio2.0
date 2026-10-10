@@ -88,7 +88,7 @@ function App() {
             </a>
             <button
               onClick={scrollToContact}
-              className="hidden md:flex bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+              className="flex bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25 text-sm sm:text-base"
             >
               Contactar
             </button>
@@ -105,61 +105,60 @@ function App() {
           style={{ opacity, scale }}
           className="flex flex-col md:flex-row gap-8 items-center"
         >
-          <div className="flex-1 ml-6 sm:ml-0 space-y-4">
+          <div className="flex-1 ml-0 space-y-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-3 py-1 text-sm bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-medium"
+              className="inline-block px-3 py-1 text-xs sm:text-sm bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-medium"
             >
-              Disponible para proyectos freelance, híbridos o remotos
+              Desarrollador React | Frontend escalable y orientado a producto
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold"
+              className="section-title"
             >
-              Desarrollador Web <br />
-              <ColorChangingText text="Full Stack" />
+              React Developer <br />
+              <ColorChangingText text="Construyendo experiencias sólidas" />
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-gray-400"
+              className="text-base sm:text-lg md:text-xl text-gray-400"
             >
-              Diseño y construyo aplicaciones web completas, con enfoque en
-              escalabilidad, automatización y experiencia real de usuario.
-              Especializado en MongoDB, Express, React, Node.js, MySQL y Turso.
-              Validaciones modernas, roles, métricas y arquitectura profesional.
+              Especializado en React.js, TypeScript, Redux, Hooks, Context API y Next.js para crear interfaces
+              escalables, performantes y mantenibles. Me enfoco en arquitectura frontend sólida, optimización
+              de rendimiento, integración con REST/GraphQL y entrega de productos con calidad y velocidad.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex gap-2 sm:gap-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4"
             >
               <a
                 href="#projects"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25 flex items-center"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/25 flex items-center justify-center"
               >
                 Ver proyectos
                 <FaArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
                 href="#contact"
-                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30"
+                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-5 rounded-lg transition-all duration-300 border border-purple-500/30 text-center"
               >
                 Contactar
               </a>
               <a
                 href={cv}
                 download
-                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-purple-500/30 flex items-center"
+                className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-5 rounded-lg transition-all duration-300 border border-purple-500/30 flex items-center justify-center"
               >
                 <FaDownload className="mr-2 h-4 w-4" />
                 Descargar CV
@@ -171,7 +170,7 @@ function App() {
             <Atropos
               highlight={false}
               shadow={false}
-              className="w-72 h-72 md:w-96 md:h-96"
+              className="w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-purple-500 shadow-lg shadow-purple-500/25">
                 <img
@@ -198,23 +197,19 @@ function App() {
           viewport={{ once: true }}
           className="space-y-4 mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold">
-            Proyectos que resuelven problemas reales:
+          <h2 className="section-title text-center">
+            Proyectos seleccionados
           </h2>
-          <p className="text-gray-400 max-w-3xl text-2xl mx-auto text-left">
-            Estos proyectos full stack reflejan mi capacidad para diseñar y
-            construir soluciones web completas, escalables y funcionales.
-            Utilizo tecnologías modernas como React, Node.js, Express, MongoDB,
-            MySQL y Turso, integrando validaciones robustas, automatización,
-            roles de usuario y métricas analíticas. Cada sistema está pensado
-            para resolver necesidades concretas, con arquitectura profesional y
-            experiencia real de usuario.
+          <p className="section-subtitle text-gray-400 max-w-3xl mx-auto text-left">
+            Desarrollo soluciones web completas, funcionales y preparadas para uso real.
+            Cada proyecto refleja mi enfoque en arquitectura limpia, lógica de negocio sólida,
+            integración de sistemas y experiencia de usuario enfocada en resultados.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <ProjectCard
-            title="E-commerce Store - Full Stack MERN + Stripe - 🚀 MVP funcional"
+            title="E-commerce Platform — Full Stack Commerce Experience"
             description="Plataforma de e-commerce con frontend moderno y backend robusto. Incluye carrito persistente, integración con Stripe, gestión de usuarios y productos, y panel administrativo con estado global optimizado."
             image={comercio}
             tags={[
@@ -233,7 +228,7 @@ function App() {
             delay={0.1}
           />
           <ProjectCard
-            title="CRM GYM - Administrador de gimnasios (En desarrollo)"
+            title="CRM Gym — Management System for Fitness Clubs"
             description="Aplicación modular para la gestión integral de gimnasios. Permite administrar clientes, asistencias por QR/DNI, pagos automatizados, productos, ventas y métricas mensuales. Backend robusto con validaciones modernas, cron jobs y arquitectura escalable."
             image={crm}
             tags={[
@@ -251,7 +246,7 @@ function App() {
           />
 
           <ProjectCard
-            title="🌍 My Itinerary — Blog de viajes con comunidad (✅ MVP funcional)"
+            title="My Itinerary — Travel Community Platform"
             description="Plataforma social para viajeros con gestión de destinos, actividades, itinerarios y comentarios. Incluye autenticación con JWT, roles de usuario (admin/cliente), validaciones en frontend y backend, y feedback visual. Backend con MongoDB y lógica de comunidad."
             image={myitinerary}
             tags={[
@@ -280,18 +275,13 @@ function App() {
             viewport={{ once: true }}
             className="space-y-4 mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mx-auto">Sobre Mí</h2>
-            <p className="text-gray-400 max-w-4xl text-2xl mx-auto text-left">
-              Con mas de 2 años de experiencia desarrollando soluciones web completas, escalables y adaptadas al
-              contexto real del usuario final. Lideré proyectos desde la
-              arquitectura de base de datos hasta la implementación de
-              interfaces intuitivas, integrando validaciones modernas, roles,
-              automatización y métricas analíticas. Trabajo con metodologías hágiles como SCRUM, priorizando código limpio,
-              prácticas
-              claras, documentación técnica y enfoque modular, tanto en equipo
-              como de forma autónoma. Disfruto resolver problemas complejos,
-              documentar errores y dejar patrones reutilizables que escalen con
-              el producto.
+            <h2 className="section-title mx-auto">Sobre mí</h2>
+            <p className="section-subtitle text-gray-400 max-w-4xl mx-auto text-left">
+              Soy un desarrollador frontend con foco en React y en la construcción de aplicaciones escalables,
+              mantenibles y alineadas con objetivos de negocio. Tengo experiencia diseñando arquitecturas frontend,
+              optimizando rendimiento, integrando APIs y trabajando con equipos ágiles para entregar soluciones con
+              calidad, claridad y rapidez. Me interesa resolver problemas reales con un código limpio, reutilizable y
+              preparado para crecer con el producto.
             </p>
           </motion.div>
 
@@ -304,18 +294,22 @@ function App() {
               }}
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-4">Frontend</h3>
+              <h3 className="text-xl font-bold mb-4">Frontend React</h3>
               <div className="space-y-2">
                 <div>
                   <p className="text-sm font-semibold text-purple-300 mb-1">
-                    UI & Animaciones
+                    UI & rendimiento
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {[
+                      "React",
+                      "TypeScript",
+                      "Next.js",
+                      "Redux",
+                      "Hooks",
+                      "Context API",
                       "Tailwind CSS",
-                      "Material UI",
                       "Framer Motion",
-                      "Atropos JS",
                     ].map((tech, i) => (
                       <span
                         key={i}
@@ -328,19 +322,24 @@ function App() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-purple-300 mt-4 mb-1">
-                    Estado & lógica
+                    Estado y patrones
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["React", "Zustand", "Redux", "JavaScript"].map(
-                      (tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-purple-500/20 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      )
-                    )}
+                    {[
+                      "Zustand",
+                      "Redux Toolkit",
+                      "SSR",
+                      "SSG",
+                      "Componentes reutilizables",
+                      "Optimización de render",
+                    ].map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-purple-500/20 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -354,14 +353,14 @@ function App() {
               }}
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-4">Backend</h3>
+              <h3 className="text-xl font-bold mb-4">Arquitectura y APIs</h3>
               <div className="space-y-2">
                 <div>
                   <p className="text-sm font-semibold text-purple-300 mb-1">
-                    Core & API
+                    Integración y consumo
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["Node.js", "Express", "REST API", "Axios"].map(
+                    {["REST API", "GraphQL", "Axios", "Fetch", "JWT", "WebSockets"].map(
                       (tech, i) => (
                         <span
                           key={i}
@@ -375,16 +374,18 @@ function App() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-purple-300 mt-4 mb-1">
-                    Bases de datos & Seguridad
+                    Backend y datos
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {[
+                      "Node.js",
+                      "Express",
                       "MongoDB",
                       "MySQL",
-                      "JWT",
+                      "SQL Server",
+                      "Azure",
                       "CORS",
                       "Zod",
-                      "Dotenv",
                       "Bcrypt",
                     ].map((tech, i) => (
                       <span
@@ -408,18 +409,24 @@ function App() {
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg transition-all duration-300"
             >
               <h3 className="text-xl font-bold mb-4">
-                Habilidades profesionales
+                Calidad, entrega y colaboración
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Comunicación clara y efectiva",
-                  "Documentación técnica",
-                  "Resolución de errores",
-                  "Trabajo en equipo",
-                  "Adaptación al contexto",
-                  "Gestión de tiempo",
-                  "Pensamiento analítico",
-                  "Creatividad aplicada",
+                  "JavaScript",
+                  "TypeScript",
+                  "Webpack",
+                  "Babel",
+                  "CI/CD",
+                  "Jest",
+                  "React Testing Library",
+                  "Cypress",
+                  "GitHub",
+                  "Git",
+                  "Scrum",
+                  "Kanban",
+                  "Code Review",
+                  "Testing automatizado",
                 ].map((skill, index) => (
                   <span
                     key={index}
@@ -445,60 +452,60 @@ function App() {
             viewport={{ once: true }}
             className="text-center space-y-4"
           >
-            <h2 className="text-3xl font-bold">Contacto</h2>
-            <p className="text-gray-400 max-w-3xl mx-auto">
-              ¿Tenés una idea, proyecto o necesidad técnica? Estoy disponible
-              para colaborar en desarrollos web, automatizaciones o soluciones
-              personalizadas. Escribime y lo charlamos.
+            <h2 className="section-title">Contacto</h2>
+            <p className="section-subtitle text-gray-400 max-w-3xl mx-auto">
+              Estoy buscando oportunidades para aportar en equipos donde la calidad, el rendimiento y la arquitectura
+              de frontend sean prioridad. Si necesitás un desarrollador React senior con enfoque en producto y ejecución,
+              podemos conversar.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-purple-500/20 shadow-lg"
             >
               <h3 className="text-xl font-bold mb-6">
-                Información de Contacto
+                Información de contacto
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <FaEnvelope className="h-5 w-5 text-purple-400" />
+                  <FaEnvelope className="h-5 w-5 text-purple-400 shrink-0" />
                   <a
                     href="mailto:gcostilla96@gmail.com"
-                    className="text-purple-300 hover:underline"
+                    className="text-purple-300 hover:underline break-all"
                   >
                     gcostilla96@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaLinkedin className="h-5 w-5 text-purple-400" />
+                  <FaLinkedin className="h-5 w-5 text-purple-400 shrink-0" />
                   <a
                     href="https://www.linkedin.com/in/guillermo-costilla-6772a725a/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-purple-300 hover:underline"
+                    className="text-purple-300 hover:underline break-all"
                   >
                     LinkedIn/guillermo-costilla
                   </a>
                 </div>
 
                 <div className="flex items-center gap-3">
-  <FaGithub className="h-5 w-5 text-purple-400" />
-  <a
-    href="https://github.com/Guillermo-Costilla"
-    target="_blank"
-    rel="noreferrer"
-    className="text-purple-300 hover:underline"
-  >
-    github.com/Guillermo-Costilla
-  </a>
-</div>
-
+                  <FaGithub className="h-5 w-5 text-purple-400 shrink-0" />
+                  <a
+                    href="https://github.com/Guillermo-Costilla"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-purple-300 hover:underline break-all"
+                  >
+                    github.com/Guillermo-Costilla
+                  </a>
+                </div>
               </div>
+
               <div className="mt-8">
                 <h4 className="font-medium mb-2">Sígueme en:</h4>
                 <div className="flex gap-4">
@@ -516,20 +523,20 @@ function App() {
                   </a>
                 </div>
               </div>
-               <div className="mt-6 space-y-2">
-    <h4 className="font-medium">Disponibilidad:</h4>
-    <div className="flex items-center gap-3">
-      <FaMapMarkerAlt className="h-8 w-8 text-purple-400" />
-      <span className="text-gray-300">
-        San Miguel de Tucumán, Argentina — abierto a trabajo remoto o cambio de residencia
-      </span>
-    </div>
-    <div className="flex items-center gap-3">
-      <FaClock className="h-5 w-5 text-purple-400" />
-      <span className="text-gray-300">Disponibilidad horaria: Full Time ✅</span>
-    </div>
-  </div>
 
+              <div className="mt-6 space-y-3">
+                <h4 className="font-medium">Disponibilidad:</h4>
+                <div className="flex items-start gap-3">
+                  <FaMapMarkerAlt className="mt-1 h-5 w-5 text-purple-400 shrink-0" />
+                  <span className="text-gray-300 text-sm sm:text-base">
+                    San Miguel de Tucumán, Argentina — disponible para trabajo 100% presencial y remoto según necesidad
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FaClock className="h-5 w-5 text-purple-400 shrink-0" />
+                  <span className="text-gray-300 text-sm sm:text-base">Disponibilidad horaria: Full Time y trabajo en equipo bajo metodologías ágiles ✅</span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -537,12 +544,8 @@ function App() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg"
+              className="w-full max-w-xl mx-auto"
             >
-              <h3 className="text-xl font-bold mb-6">Envíame tu mensaje</h3>
-              <p className="text-gray-400 mb-4">
-                Respondé este formulario y te contacto lo antes posible.
-              </p>
               <ContactForm />
             </motion.div>
           </div>
@@ -554,8 +557,7 @@ function App() {
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} GuilleDev. Todos los derechos
-              reservados.
+              © {new Date().getFullYear()} GuilleDev. Todos los derechos reservados.
             </p>
           </div>
           <div className="flex gap-4">

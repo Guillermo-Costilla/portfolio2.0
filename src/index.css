@@ -19,6 +19,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #111827;
   color: white;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+p,
+a,
+span,
+button,
+input,
+textarea,
+label {
+  font-family: inherit;
+}
+
+.section-title {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-weight: 800;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.7;
+}
+
+.card-title {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 700;
 }
 
 ::-webkit-scrollbar {
