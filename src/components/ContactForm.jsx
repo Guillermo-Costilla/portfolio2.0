@@ -58,23 +58,24 @@ function ContactForm() {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       viewport={{ once: true }}
-      whileHover={{ y: -10, boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.3)" }}
-      className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 shadow-lg"
+      whileHover={{ y: -4, boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.3)" }}
+      className="w-full rounded-xl border border-purple-500/20 bg-gray-800/50 p-4 shadow-lg backdrop-blur-sm sm:p-6"
     >
+      <h3 className="mb-6 text-xl font-bold">Envíame un mensaje</h3>
 
       {isSubmitted ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-green-500/20 p-4 rounded-lg text-center"
+          className="rounded-lg bg-green-500/20 p-4 text-center"
         >
           <p className="text-green-400 font-medium">¡Mensaje enviado con éxito!</p>
-          <p className="text-gray-400 text-sm mt-2">Me pondré en contacto contigo pronto.</p>
+          <p className="mt-2 text-sm text-gray-400">Me pondré en contacto contigo pronto.</p>
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium block">
+            <label htmlFor="name" className="block text-sm font-medium">
               Nombre
             </label>
             <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
@@ -83,7 +84,7 @@ function ContactForm() {
                 name="name"
                 value={formState.name}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700/50 border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 outline-none"
+                className="w-full rounded-lg border border-purple-500/20 bg-gray-700/50 p-3 text-base text-white outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                 placeholder="Tu nombre"
                 required
               />
@@ -91,7 +92,7 @@ function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium block">
+            <label htmlFor="email" className="block text-sm font-medium">
               Email
             </label>
             <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
@@ -101,7 +102,7 @@ function ContactForm() {
                 type="email"
                 value={formState.email}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700/50 border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 outline-none"
+                className="w-full rounded-lg border border-purple-500/20 bg-gray-700/50 p-3 text-base text-white outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                 placeholder="tu@email.com"
                 required
               />
@@ -109,7 +110,7 @@ function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium block">
+            <label htmlFor="message" className="block text-sm font-medium">
               Mensaje
             </label>
             <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
@@ -118,7 +119,7 @@ function ContactForm() {
                 name="message"
                 value={formState.message}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700/50 border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 outline-none min-h-[120px]"
+                className="min-h-[120px] w-full rounded-lg border border-purple-500/20 bg-gray-700/50 p-3 text-base text-white outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
                 placeholder="Tu mensaje..."
                 required
               />
@@ -126,19 +127,20 @@ function ContactForm() {
           </div>
 
           <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-300 ${isSubmitting
-              ? "bg-purple-700 cursor-not-allowed"
-              : "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg hover:shadow-purple-500/25"
-              }`}
+            className={`w-full rounded-lg px-4 py-3 font-medium text-white transition-all duration-300 ${
+              isSubmitting
+                ? 'cursor-not-allowed bg-purple-700'
+                : 'bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg hover:shadow-purple-500/25 hover:from-purple-600 hover:to-pink-600'
+            }`}
           >
             {isSubmitting ? (
               <div className="flex items-center justify-center">
                 <svg
-                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                  className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -153,7 +155,7 @@ function ContactForm() {
                 Enviando...
               </div>
             ) : (
-              "Enviar mensaje"
+              'Enviar mensaje'
             )}
           </motion.button>
         </form>
