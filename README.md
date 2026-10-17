@@ -1,8 +1,43 @@
-# React + Vite
+# Portafolio — Guillermo Costilla
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio con dos perfiles: **Data Analyst** (`/data-analytics`) y **Full Stack Developer** (`/full-stack`). La portada (`/`) permite elegir el perfil.
 
-Currently, two official plugins are available:
+## Ejecutar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Usar **PNPM**:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Build y lint:
+
+```bash
+pnpm lint
+pnpm build
+pnpm preview
+```
+
+## Agregar un proyecto
+
+### Full Stack
+
+1. Guardá la imagen en `src/assets/fullstack/`.
+2. Importala en `src/data/fullstackProjects.js`.
+3. Agregá un objeto al array (`name`, `image`, `description`, `tools`, `githubUrl`, `demoUrl`).
+4. Si `githubUrl` o `demoUrl` están vacíos, el botón no se muestra.
+
+### Data Analytics
+
+Igual, en `src/assets/analytics/` y `src/data/analyticsProjects.js`.
+
+Los campos extra (`businessProblem`, `analysisGoal`, `dataPrep`, `kpis`, `insights`) aparecen en el modal **Ver caso**.
+
+## Completar a mano
+
+- Enlaces de GitHub y demo de los tableros de analítica.
+- Stack real del CRM de negocios (`tools` está vacío a propósito).
+- GitHub y demo del CRM de negocios cuando existan.
+
+Contacto, CVs y foto se editan en `src/config/site.js`.

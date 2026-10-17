@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="background" x1="90" y1="54" x2="1100" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101D2B"/>
+      <stop offset="1" stop-color="#111321"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="168" y1="250" x2="1026" y2="504" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8B5"/>
+      <stop offset="1" stop-color="#73A9FF"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="1200" height="750" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="750" rx="28" fill="url(#background)"/>
+  <circle cx="234" cy="266" r="154" fill="#36D99B" fill-opacity=".13" filter="url(#glow)"/>
+  <circle cx="956" cy="516" r="180" fill="#6E7DFF" fill-opacity=".14" filter="url(#glow)"/>
+  <path d="M80 120H1120M80 630H1120" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <text x="94" y="91" fill="#AAB8CB" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">DATA ENGINEERING · AUTOMATED WORKFLOW</text>
+  <text x="92" y="187" fill="#F4F7FB" font-family="Arial, sans-serif" font-size="58" font-weight="700">Crypto ELT Pipeline</text>
+  <text x="96" y="230" fill="#AAB8CB" font-family="Arial, sans-serif" font-size="23">Live market data, modeled for reliable analysis</text>
+  <path d="M344 402H443M755 402H854" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <path d="m433 392 14 10-14 10M844 392l14 10-14 10" stroke="#83EAC4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="96" y="302" width="248" height="200" rx="20" fill="#162638" stroke="#67E8B5" stroke-opacity=".55"/>
+  <circle cx="140" cy="350" r="17" fill="#67E8B5" fill-opacity=".18"/>
+  <path d="M140 340v20m-8-12 8-8 8 8m-16 7 8 5 8-5" stroke="#67E8B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="126" y="405" fill="#F4F7FB" font-family="Arial, sans-serif" font-size="25" font-weight="700">EXTRACT</text>
+  <text x="126" y="440" fill="#AAB8CB" font-family="Arial, sans-serif" font-size="19">Python · CoinGecko API</text>
+  <text x="126" y="474" fill="#67E8B5" font-family="Arial, sans-serif" font-size="16" font-weight="700">LIVE CRYPTO PRICES</text>
+  <rect x="443" y="302" width="312" height="200" rx="20" fill="#192337" stroke="#83B5FF" stroke-opacity=".55"/>
+  <circle cx="489" cy="350" r="17" fill="#83B5FF" fill-opacity=".18"/>
+  <ellipse cx="489" cy="346" rx="9" ry="4" stroke="#83B5FF" stroke-width="2"/>
+  <path d="M480 346v10c0 2 4 4 9 4s9-2 9-4v-10m-18 5c0 2 4 4 9 4s9-2 9-4" stroke="#83B5FF" stroke-width="2"/>
+  <text x="475" y="405" fill="#F4F7FB" font-family="Arial, sans-serif" font-size="25" font-weight="700">LOAD + TRANSFORM</text>
+  <text x="475" y="440" fill="#AAB8CB" font-family="Arial, sans-serif" font-size="19">Azure SQL · T-SQL</text>
+  <text x="475" y="474" fill="#83B5FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">STAGING → STAR SCHEMA</text>
+  <rect x="854" y="302" width="250" height="200" rx="20" fill="#1B2035" stroke="#A59AFF" stroke-opacity=".6"/>
+  <circle cx="900" cy="350" r="17" fill="#A59AFF" fill-opacity=".18"/>
+  <path d="M900 337v26m-13-13h26m-22-9 18 18m0-18-18 18" stroke="#A59AFF" stroke-width="2" stroke-linecap="round"/>
+  <text x="884" y="405" fill="#F4F7FB" font-family="Arial, sans-serif" font-size="25" font-weight="700">SCHEDULE</text>
+  <text x="884" y="440" fill="#AAB8CB" font-family="Arial, sans-serif" font-size="19">GitHub Actions</text>
+  <text x="884" y="474" fill="#B4A9FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">CLOUD · HANDS-FREE</text>
+  <rect x="96" y="544" width="1008" height="54" rx="14" fill="#FFFFFF" fill-opacity=".045"/>
+  <circle cx="124" cy="571" r="5" fill="#67E8B5"/>
+  <text x="144" y="578" fill="#D8E1ED" font-family="Arial, sans-serif" font-size="17">Scheduled runs</text>
+  <circle cx="344" cy="571" r="5" fill="#83B5FF"/>
+  <text x="364" y="578" fill="#D8E1ED" font-family="Arial, sans-serif" font-size="17">Raw staging preserved</text>
+  <circle cx="642" cy="571" r="5" fill="#A59AFF"/>
+  <text x="662" y="578" fill="#D8E1ED" font-family="Arial, sans-serif" font-size="17">Retry-aware cloud database</text>
+  <text x="96" y="683" fill="#718198" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">PYTHON  /  SQL SERVER  /  AZURE  /  GITHUB ACTIONS</text>
+</svg>
